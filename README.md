@@ -2,12 +2,35 @@
 
 React Native Map components for iOS + Android
 
-# THIS IS A FORK FROM THE ORIGINAL `react-native-maps` PACKAGE FROM AIRBNB
-## This version implements the ability to choose which type of resources we want to use for bundling directly local custom tiles into the APK
+# THIS IS A FORK FROM THE ORIGINAL `react-native-maps` PACKAGE FROM airbnb
+## This version implements the ability to choose which type of resources we want to use for bundling directly local custom tiles into the output build.
 ## Why ?
 In the official `react-native-maps` package, the way in which the `pathTemplate` (custom tiles folder -> `{folder}/{z}/{x}/{y}.{(.jpg|.png)}`) prop is implemented in the native side of the LocalTile class use by default the filesystem (Android `File` API).
-So if we want to bundle local tiles directly in the build as assets, it won't be possible on Android because of the way that assets are managed.
-On iOS, because of the fact that resources/assets are mapped and symlinked in the bundle filesystem, it will be possible when using specific RNFS property `mainBundlePath` (only on iOS / make sure to map the folder in Xcode).
+
+## How ?
+So if we want to bundle local tiles directly in the build **as assets**, it won't be possible on Android because of the way that assets are managed and the AirMapLocalTile is developed.
+On iOS, because of the fact that resources/assets are mapped and symlinked in the bundle filesystem, it is possible to link to the folder asset using specific RNFS property `mainBundlePath` (only on iOS. **make sure to map the folder in Xcode**).
+
+## Example
+```jsx
+render () {
+  ...
+  {Platform.OS === 'android' ? (
+    <LocalTile
+      pathTemplate="map/{z}/{x}/{y}.jpg" // from the root of the assets folder (`android/src/main/assets`)
+      tileSize={256}
+      zIndex={1}
+      urlScope="assets" // "assets" | "fs" -> defines the type of assets we want
+    />
+    ) : (
+    <UrlTile
+      urlTemplate={`file://${RNFS.MainBundlePath}/map/{z}/{x}/{y}.jpg`} // do the trick on iOS (have to link the folder in Xcode)
+      tileSize={256}
+      zIndex={1}
+    />
+  )}
+}
+```
 
 ## Installation
 
