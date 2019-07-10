@@ -9,7 +9,7 @@ In the official `react-native-maps` package, the way in which the `pathTemplate`
 
 ## How ?
 So if we want to bundle local tiles directly in the build **as assets**, it won't be possible on Android because of the way that assets are managed and the AirMapLocalTile is developed.
-On iOS, because of the fact that resources/assets are mapped and symlinked in the bundle filesystem, it is possible to link to the folder asset using specific RNFS property `mainBundlePath` (only on iOS. **make sure to map the folder in Xcode**).
+On iOS, because of the fact that resources/assets are mapped and symlinked in the bundle filesystem, it is possible to link to the folder asset using specific [RNFS] (https://github.com/itinance/react-native-fs) property `mainBundlePath` (only on iOS. **make sure to map the folder in Xcode**).
 
 ## Example
 ```jsx
