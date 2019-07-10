@@ -1,6 +1,6 @@
 # react-native-maps [![npm version](https://img.shields.io/npm/v/react-native-maps.svg?style=flat)](https://www.npmjs.com/package/react-native-maps)
 
-React Native Map components for iOS + Android
+React Native Map components for iOS + Android **+ added ability to select local tiles as assets of the bundle (Android/iOS)**
 
 # THIS IS A FORK FROM THE ORIGINAL `react-native-maps` PACKAGE FROM airbnb
 ## This version implements the ability to choose which type of resources we want to use for bundling directly local custom tiles into the output build.
