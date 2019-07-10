@@ -1,4 +1,5 @@
-# react-native-maps [![npm version](https://img.shields.io/npm/v/react-native-maps.svg?style=flat)](https://www.npmjs.com/package/react-native-maps)
+# react-native-maps [![npm version](https://img.shields.io/npm/v/react-native-maps.svg?style=flat)](https://www.npmjs.com/package/react-native-maps) [![ForkVersion](https://img.shields.io/badge/fork-0.23.0-blue.svg)]
+
 
 React Native Map components for iOS + Android **+ added ability to select local tiles as assets of the bundle (Android/iOS)**
 
